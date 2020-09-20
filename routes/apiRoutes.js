@@ -6,7 +6,6 @@ router.get("/api/workouts", (req, res) => {
   Workout.find({})
     .then((dbWorkout) => {
       res.json(dbWorkout);
-      console.log("dbWorkout", err);
     })
     .catch((err) => {
       res.status(400).json(err);
@@ -19,7 +18,7 @@ router.get("api/workouts/range", (req, res) => {
       res.json(dbWorkout);
     })
     .catch((err) => {
-      res.status.json(err);
+      res.status(400).json(err);
     });
 });
 
@@ -34,13 +33,14 @@ router.post("/api/workouts", (req, res) => {
 });
 
 // Helpful!! Ins-populate class 17 NoSQL activity #14
-router.put("/api/workouts/ :id", (req, res) => {
+router.put("/api/workouts/ :id", ({ body, params }, res) => {
   Workout.findByIdAndUpdate(
-    { id: req.parms.id },
-    { $push: { exercise: req.body } }
+    params.id,
+    { $push: { exercises: body } },
+    { new: true, runValidators: true }
   )
-    .then((dbExercise) => {
-      res.json(dbExercise);
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
     })
     .catch((err) => {
       res.status(400).json(err);
