@@ -5,9 +5,11 @@ const Workout = require("../models/Workout");
 router.get("/api/workouts", (req, res) => {
   Workout.find({})
     .then((dbWorkout) => {
+      // console.log("dbWorkout", data);
       res.json(dbWorkout);
     })
     .catch((err) => {
+      console.log("error", err);
       res.status(400).json(err);
     });
 });
@@ -33,7 +35,7 @@ router.post("/api/workouts", (req, res) => {
 });
 
 // Helpful!! Ins-populate class 17 NoSQL activity #14
-router.put("/api/workouts/ :id", ({ body, params }, res) => {
+router.put("/api/workouts/:id", ({ body, params }, res) => {
   Workout.findByIdAndUpdate(
     params.id,
     { $push: { exercises: body } },
