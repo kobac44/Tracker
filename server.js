@@ -15,7 +15,8 @@ app.use(express.static("public"));
 app.use(logger("dev"));
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/Fitness-Activity",
+  process.env.MONGODB_URI ||
+    "mongodb+srv://kobie:tree2211@cluster0.gutfb.mongodb.net/exercise?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
