@@ -14,6 +14,8 @@ app.use(express.static("public"));
 
 app.use(logger("dev"));
 
+console.log(process.env.MONGODB_URI);
+
 mongoose.connect(
   process.env.MONGODB_URI ||
     "mongodb+srv://kobie:tree2211@cluster0.gutfb.mongodb.net/exercise?retryWrites=true&w=majority",
