@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const Workout = require("../models/Workout");
+const db = require("../models");
 
 // Using 17-NoSQL activity #7 these routes
 router.get("/api/workouts", (req, res) => {
-  Workout.find({})
+  db.Workout.find({})
     .then((dbWorkout) => {
       // console.log("dbWorkout", data);
       res.json(dbWorkout);
@@ -15,7 +15,7 @@ router.get("/api/workouts", (req, res) => {
 });
 
 router.get("/api/workouts/range", (req, res) => {
-  Workout.find()
+  db.Workout.find()
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
@@ -25,7 +25,7 @@ router.get("/api/workouts/range", (req, res) => {
 });
 
 router.post("/api/workouts", (req, res) => {
-  Workout.create({})
+  db.Workout.create({})
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })
@@ -36,7 +36,7 @@ router.post("/api/workouts", (req, res) => {
 
 // Helpful!! Ins-populate class 17 NoSQL activity #14
 router.put("/api/workouts/:id", ({ body, params }, res) => {
-  Workout.findByIdAndUpdate(
+  db.Workout.findByIdAndUpdate(
     params.id,
     { $push: { exercises: body } },
     { new: true, runValidators: true }
