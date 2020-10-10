@@ -30,6 +30,7 @@ Usages and some basic functionailty
 - @BorjanBartula
 - @tylerhbray
 - @wilsonhorrell
+- @jon Jackson
 
 # https://github.com/kobac44
 
@@ -38,8 +39,9 @@ Usages and some basic functionailty
 > ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 # Links
-* https://kobac44.github.io/Tracker/
-* Heroku:https://limitless-eyrie-09715.herokuapp.com/
+
+- https://kobac44.github.io/Tracker/
+- Heroku:https://limitless-eyrie-09715.herokuapp.com/
 
 ## Acceptance Criteria
 
@@ -52,3 +54,7 @@ The user should be able to:
 - Add new exercises to a new workout plan.
 
 - View the combined weight of multiple exercises on the `stats` page.
+
+# Heroku Deploy
+
+<img src="https://limitless-eyrie-09715.herokuapp.com/>
